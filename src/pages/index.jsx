@@ -1,43 +1,36 @@
+/* eslint-disable react/prop-types */
 import {
-  Box, DocumentOutline, Heading, Paragraph,
+  DocumentOutline,
 } from 'candi-ui';
-import { useLanguage } from 'utils/i18n';
+import Head from 'next/head';
+import { PageViewer } from 'utils/andesit';
 
-export default function Home() {
-  const { t, changeLanguage } = useLanguage();
+const fetcher = async (url) => {
+  const res = await fetch(url);
+  const data = await res.json();
 
-  const onChangeLanguage = (lang) => {
-    changeLanguage(lang);
-  };
+  if (res.status !== 200) {
+    throw new Error(data.message);
+  }
+  return data;
+};
 
+export default function Home({ page }) {
+  if (!page) {
+    return <div>404 Not Found</div>;
+  }
   return (
     <DocumentOutline>
-      <Box gap="large" pad={{ _: 'medium', desktop: 'large' }} background="primary200" margin={{ _: 'medium', desktop: 'large' }}>
-        <Heading>Heading 1</Heading>
-        <Box gap="medium">
-          <DocumentOutline>
-            <Heading>Heading 2</Heading>
-            <Box direction="row" gap="medium">
-              <button type="button" onClick={() => onChangeLanguage('id')}>
-                {t('example.change_language', { lang: 'Indonesia' })}
-              </button>
-              <button type="button" onClick={() => onChangeLanguage('en')}>
-                {t('example.change_language', { lang: 'English' })}
-              </button>
-            </Box>
-          </DocumentOutline>
-        </Box>
-        <Box gap="medium">
-          <DocumentOutline>
-            <Heading>Heading 2</Heading>
-            <Paragraph>{t('example.hello')}</Paragraph>
-            <DocumentOutline>
-              <Heading>Heading 3</Heading>
-              <Paragraph size="small">{t('example.hello')}</Paragraph>
-            </DocumentOutline>
-          </DocumentOutline>
-        </Box>
-      </Box>
+      <Head>
+        <title>{page.meta.title}</title>
+        <meta name="description" content={page.meta.description} />
+      </Head>
+      <PageViewer page={page} />
     </DocumentOutline>
   );
+}
+
+export async function getServerSideProps() {
+  const page = await fetcher(`${process.env.BASE_URL}/api/pages/home`);
+  return { props: { page } };
 }
