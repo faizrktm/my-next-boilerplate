@@ -20,6 +20,46 @@ const pages = [
           description: 'Easy way to render your React Component with Hybrid CMS by Andesit and NextJS.',
         },
       },
+      {
+        id: '5875a98c-0573-11eb-adc1-0242ac120002',
+        type: 'features',
+        props: {
+          items: [
+            {
+              id: '5875aba8-0573-11eb-adc1-0242ac120002',
+              type: 'feature',
+              props: {
+                title: 'Create your own component',
+                description: 'Create your component based on our Atoms component, be a creator!',
+              },
+            },
+            {
+              id: '5875aca2-0573-11eb-adc1-0242ac120002',
+              type: 'feature',
+              props: {
+                title: 'Deploy easily',
+                description: 'Build with nextjs and deploy your site just like any other nextjs site',
+              },
+            },
+            {
+              id: '5875af5e-0573-11eb-adc1-0242ac120002',
+              type: 'feature',
+              props: {
+                title: 'Intergration Support',
+                description: 'Integrate with your own API to fetch dynamic data',
+              },
+            },
+            {
+              id: '5875b03a-0573-11eb-adc1-0242ac120002',
+              type: 'feature',
+              props: {
+                title: 'Be Awesome',
+                description: 'Just be awesome, be kind, helpful, and grateful',
+              },
+            },
+          ],
+        },
+      },
     ],
   },
 ];

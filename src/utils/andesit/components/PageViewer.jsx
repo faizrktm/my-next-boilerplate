@@ -5,17 +5,21 @@ import { AndesitContext } from './AndesitProvider';
 
 function renderElement(content, blockTypeSchema) {
   return content.map(({
-    type,
     id,
+    type,
     props,
-    items,
   }) => {
     const item = blockTypeSchema[type];
     const Component = item?.render;
     if (!Component) return null;
 
-    if (item.superType === types.BlockSuperType.Repeater && items) {
-      return renderElement(items, blockTypeSchema);
+    if (item.superType === types.BlockSuperType.Repeater && props?.items) {
+      const { items, ...rest } = props;
+      return (
+        <Component key={id} {...rest}>
+          {renderElement(items, blockTypeSchema)}
+        </Component>
+      );
     }
     return <Component key={id} {...props} />;
   });
