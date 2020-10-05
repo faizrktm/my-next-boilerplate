@@ -155,6 +155,92 @@ const pages = [
                 ],
               },
             },
+            {
+              id: '5875n42o-0573-11eb-adc1-0242ac120002',
+              component: 'DocumentOutline',
+              type: 'REPEATER',
+              props: {
+                items: [
+                  {
+                    id: '5875l42q-0573-11eb-adc1-0242ac120002',
+                    component: 'Box',
+                    type: 'REPEATER',
+                    props: {
+                      flex: true,
+                      justify: 'center',
+                      pad: 'large',
+                      border: {
+                        color: 'black400',
+                        side: 'all',
+                        size: 'small',
+                      },
+                      round: 'medium',
+                      items: [
+                        {
+                          id: '5875f42n-0573-11eb-adc1-0242ac120002',
+                          component: 'Heading',
+                          type: 'SINGLE',
+                          props: {
+                            children: 'Feature 3 Title',
+                          },
+                        },
+                        {
+                          id: '5875q42c-0573-11eb-adc1-0242ac120002',
+                          component: 'Paragraph',
+                          type: 'SINGLE',
+                          props: {
+                            children: 'Feature 3 Description',
+                          },
+                        },
+                      ],
+                    },
+                  },
+                ],
+              },
+            },
+            {
+              id: '5875n42d-0573-11eb-adc1-0242wc120002',
+              component: 'DocumentOutline',
+              type: 'REPEATER',
+              props: {
+                items: [
+                  {
+                    id: '5875l42q-0573-11eb-adc1-0242ac120002',
+                    component: 'Box',
+                    type: 'REPEATER',
+                    props: {
+                      flex: true,
+                      justify: 'center',
+                      pad: 'large',
+                      border: {
+                        color: 'black400',
+                        side: 'all',
+                        size: 'small',
+                      },
+                      round: 'medium',
+                      items: [
+                        {
+                          id: '5875f42n-0573-11eb-adc1-0242ac120002',
+                          component: 'Heading',
+                          type: 'SINGLE',
+                          props: {
+                            children: 'Feature 4 Title',
+                          },
+                        },
+                        {
+                          id: '5875q42c-0573-11eb-adc1-0242ac120002',
+                          component: 'Paragraph',
+                          type: 'SINGLE',
+                          props: {
+                            children: 'Feature 4 Description',
+                          },
+                        },
+                      ],
+                    },
+                  },
+                ],
+              },
+            },
           ],
         },
       },
