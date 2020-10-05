@@ -1,8 +1,7 @@
 /* eslint-disable react/prop-types */
-import React, { useContext } from 'react';
+import React from 'react';
 import * as Candi from 'candi-ui';
 import types from '../types';
-import { AndesitContext } from './AndesitProvider';
 
 function renderElement(content) {
   return content.map(({
@@ -27,9 +26,8 @@ function renderElement(content) {
 }
 
 export default function PageViewer({ page }) {
-  const { blockTypeSchema } = useContext(AndesitContext);
   const { content } = page;
-  const elements = renderElement(content, blockTypeSchema);
+  const elements = renderElement(content);
   return (
     <>
       {elements}
